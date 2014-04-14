@@ -11,20 +11,20 @@ function message () {
 }
 
 function info () {
-  message "\e[34m$1\e[0m"
+  message "\e[34m$1\e[0m\n"
 }
 
 function success () {
-  message "\e[32m$1\e[0m"
+  message "\e[32m$1\e[0m\n"
 }
 
 function warn () {
-  message "\e[33m$1\e[0m"
+  message "\e[33m$1\e[0m\n"
   message "\n"
 }
 
 function fail () {
-  message "\e[31m$1\e[0m"
+  message "\e[31m$1\e[0m\n"
   message "\n"
   exit
 }
