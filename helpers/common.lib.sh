@@ -1,8 +1,7 @@
 #!/bin/sh
+# Licensed under GPL-3
 #
 # Common functions used by the scripts
-
-# Standard output functions
 
 function message () {
   if [ "$quiet" != 1 ]
@@ -11,39 +10,21 @@ function message () {
   fi
 }
 
-function message_error () {
-  message "\e[31m$1\e[0m"
-}
-
-function message_warn () {
-  message "\e[33m$1\e[0m"
-}
-
-function message_success () {
-  message "\e[32m$1\e[0m"
-}
-
-# Flat output inprogress -> complete logging functions
-
 function info () {
-  message "  [ \033[00;34m..\033[0m ] $1"
-}
-
-function user () {
-  message "\r  [ \033[0;33m?\033[0m ] $1 "
+  message "\e[34m$1\e[0m"
 }
 
 function success () {
-  message "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+  message "\e[32m$1\e[0m"
 }
 
 function warn () {
-  message "\r\033[2K  [\033[0;33mWARNING\033[0m] $1\n"
+  message "\e[33m$1\e[0m"
   message "\n"
 }
 
 function fail () {
-  message "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  message "\e[31m$1\e[0m"
   message "\n"
   exit
 }
@@ -54,6 +35,7 @@ function countdown () {
 
   while [ "$timeleft" -gt "0" ]; do
     message_error "${bold} $timeleft";
+    # fork and merge to reduce delays introduced by instruciton executions
     sleep 1 &
     timeleft=`expr $timeleft - 1`;
     wait
