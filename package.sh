@@ -5,7 +5,7 @@
 source ./helpers/common.lib.sh;
 
 WORKDIR="`pwd`"
-PROVISIONS="$WORKDIR/provisions"
+PROVISIONS="$WORKDIR/profiles"
 
 # Initialize our own variables:
 list=0
@@ -25,8 +25,8 @@ $0 [OPTION]
 
 options:
 
-    -l --list        list available provisions
-    -n --name=NAME   name of provision for which to build a bootable device
+    -l --list        list available provision profiles
+    -n --name=NAME   name of provision profile for which to build a bootable device
     -u --usb         create a bootable usb device
     -p --pxe         create a bootable pxe device
     -q --quiet       do not log messages to STDOUT
@@ -290,7 +290,7 @@ then
     echo "FN: $filename"
     filelist="$filelist  - ${filename##*/}\n";
   done
-  printf "Available provisions for which bootable devices may be built:\n";
+  printf "Available provision profiles for which bootable devices may be built:\n";
   printf "\n";
   printf "${filelist}\n";
   exit 0;
@@ -298,7 +298,7 @@ fi
 
 if [ ! -n "$name" ];
 then
-  fail "Please provide a provision name so that a bootable device can be built";
+  fail "Please provide a provision profile name so that a bootable device can be built";
 fi
 
 if [ "$usb" == 1 ];

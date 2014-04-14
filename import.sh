@@ -77,7 +77,7 @@ function get_options () {
 # IMPORT FUNCTIONS
 
 function safe_profile_clean () {
-  profilepath="${WORKDIR}/provisions/$1";
+  profilepath="${WORKDIR}/profiles/$1";
   preservepath="mods";
 
   for filename in $profilepath/*;
@@ -217,7 +217,7 @@ then
   \"$name\"\n"
 fi
 
-provisiondir="${WORKDIR}/provisions/${name}"
+provisiondir="${WORKDIR}/profiles/${name}"
 extractdir="${provisiondir}/images"
 
 # Check  for a previous existing profile
