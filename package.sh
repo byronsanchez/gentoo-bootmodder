@@ -294,7 +294,6 @@ then
   filelist="";
   for filename in $PROVISIONS/*;
   do
-    echo "FN: $filename"
     filelist="$filelist  - ${filename##*/}\n";
   done
   printf "Available provision profiles for which bootable devices may be built:\n";
