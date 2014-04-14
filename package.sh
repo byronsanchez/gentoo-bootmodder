@@ -133,7 +133,7 @@ function apply_mods () {
   fi
   if [ -d "$modsramfsdir" ];
   then
-    cp -r $modsramfsdir/* $buildsquashfsdir/ramdisk;
+    cp -r $modsramfsdir/* $buildramfsdir/ramdisk;
   fi
   if [ -d "$modsusbbootloaderdir" ];
   then
