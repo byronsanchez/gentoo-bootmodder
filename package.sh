@@ -220,9 +220,16 @@ build_pxe_device () {
     mkdir -p "$devicedir";
   fi
   cp /usr/share/syslinux/pxelinux.0 $devicedir;
+  cp /usr/share/syslinux/ldlinux.c32 $devicedir;
+  cp /usr/share/syslinux/menu.c32 $devicedir;
+  cp /usr/share/syslinux/libutil.c32 $devicedir;
   cp $isodir/isolinux/gentoo $devicedir;
   mkdir $devicedir/pxelinux.cfg;
   cat > $devicedir/pxelinux.cfg/default << EOF
+default menu.c32
+prompt 0
+timeout 100
+
 label linux
   kernel gentoo
   append initrd=gentoo.igz root=/dev/ram0 init=/linuxrc loop=image.squashfs looptype=squashfs cdroot=1 real_root=/
