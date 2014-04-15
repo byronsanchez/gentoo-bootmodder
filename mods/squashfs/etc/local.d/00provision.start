@@ -1,0 +1,26 @@
+#!/bin/sh
+# Licensed under GPL-3
+#
+# Invokes the gentoo autoinstall script.
+
+# The absolute path the program is stored in within the livedisk's filesystem
+WORKDIR="/mnt/livecd/autoinstall"
+
+for x in $(cat /proc/cmdline);
+do
+  case $x in
+  provision=*)
+    PROVISION="${x#provision=}"
+    ;;
+  esac
+done
+
+# Pass the provision type
+if [ ! -n $PROVISION ];
+then
+  PROVISION="generic"
+fi
+
+cd $WORKDIR
+/bin/sh autoinstall.sh $PROVISION
+
