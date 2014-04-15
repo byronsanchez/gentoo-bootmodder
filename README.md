@@ -1,14 +1,17 @@
 # Gentoo Bootmodder Scripts
 
 This repository contains a set of tools designed to modify the gentoo minimal
-install cd.
+install cd. I use these tools to create bootable images packaged with autoinstall
+scripts- on boot, the gentoo installation automatically takes place with my
+specified configurations for partitioning, packages to install, etc. Though, you
+can use these tools to modify the iso however you'd like.
 
 The following boot methods are currently supported:
 
   - USB 
   - PXE
 
-The basic steps are as follows:
+The basic steps of the modification process:
 
   1. Download the latest Gentoo minimal install iso
   2. Modify the contents of the iso so that the installation will take place
