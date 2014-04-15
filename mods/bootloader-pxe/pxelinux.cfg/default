@@ -1,0 +1,8 @@
+default menu.c32
+prompt 0
+timeout 100
+
+label linux
+  kernel gentoo
+  append initrd=gentoo.igz root=/dev/ram0 init=/linuxrc loop=image.squashfs looptype=squashfs cdroot=1 real_root=/ provision=guest
+
