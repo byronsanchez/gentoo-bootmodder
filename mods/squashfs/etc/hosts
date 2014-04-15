@@ -1,0 +1,4 @@
+127.0.0.1 livecd.gentoo livecd localhost
+10.66.77.100 binhost.internal.nitelite.io binhost
+10.66.77.100 puppet.internal.nitelite.io puppet
+
