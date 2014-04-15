@@ -33,3 +33,12 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+##################
+# Project-specific
+
+.build
+profiles/*/devices
+profiles/*/extracts
+profiles/*/images
+
+
