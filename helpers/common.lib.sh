@@ -29,12 +29,16 @@ function fail () {
   exit
 }
 
+function inline_error () {
+  message "\e[31m$1\e[0m"
+}
+
 function countdown () {
   totaltime=$1
   timeleft=$totaltime
 
   while [ "$timeleft" -gt "0" ]; do
-    message_error "${bold} $timeleft";
+    inline_error "${bold} $timeleft";
     # fork and merge to reduce delays introduced by instruciton executions
     sleep 1 &
     timeleft=`expr $timeleft - 1`;
